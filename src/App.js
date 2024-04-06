@@ -60,7 +60,7 @@ function App() {
       <div className='Buffer'> </div>
 
       <footer className="Footer">
-        <p> 2024 Re-Soul Your Shoes</p>
+        <p> 2024 ReSoul</p>
       </footer>
     </div>
   );
