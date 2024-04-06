@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Welcome to My React Scrollable Page</h1>
+        <h1>Hwllo to My React Scrollable Page</h1>
       </header>
       <div className="Content">
         <p>
