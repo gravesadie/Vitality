@@ -1,6 +1,4 @@
-import React, { useState, useRef} from 'react';
-import Logo from './vector3.svg';
-import Splash from './website_photo.jpg';
+import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
 
 function App() {
@@ -27,17 +25,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div className="logo">
-          <img className="logo" src={Logo} alt="ReSoul Logo"/>
-        </div>
-        <div className='Title'>
-          <h1>ReSoul Your Shoes</h1>
-        </div>
+        <h1>ReSoul Your Shoes</h1>
       </header>
-
-      <div className="Splash">
-        <img className="mountain-photo" src={Splash} alt={"Climber on mountain"}/>
-      </div>
 
       <div className="Introduction">
         <h2> Motivation </h2>
@@ -51,9 +40,8 @@ function App() {
         <p>
           What resoling is, why it's important.
         </p>
-        <div className="Image">
-          <img className="before-after-image" src={"https://blog.weighmyrack.com/wp-content/uploads/2019/12/Yosemite-Bum-Resoling-before-after-Photo.jpg"} alt={`Before & after resoling climbing shoes`} />
-        </div>
+        <img className="shoe-diagram" src={"https://images.squarespace-cdn.com/content/v1/603cfb54fc57820778f008fb/1614786612429-OHV4FYZIME3NP732LBO5/shoe_anatomy.png"} alt={'Diagram of a climbing shoe'} />
+        <img className="before-after-image" src={"https://blog.weighmyrack.com/wp-content/uploads/2019/12/Yosemite-Bum-Resoling-before-after-Photo.jpg"} alt={`Before & after resoling climbing shoes`} />
       </div>
       
       <div className="Upload">

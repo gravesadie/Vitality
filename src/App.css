@@ -1,10 +1,12 @@
+@import './font.css';
+
 body,
 html {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  color: #fff;
-  background-color: #d193af;
+  font-family: "Quicksand", sans-serif;
+  color: #c45f00;
+  background-color: #7765d0;
   height: 100%;
 }
 
@@ -16,9 +18,27 @@ html {
 }
 
 .App-header {
-  background-color: #969696;
-  color: white;
-  padding: 20px;
+  display: flex;
+  background-color: #ffffff;
+  color: rgb(206, 94, 94);
+  position: fixed;
+  width: 100%;
+  height: 15%;
+}
+
+.logo {
+  justify-content: left;
+  width: 30%;
+}
+
+.Title{
+  justify-content: center;
+  font-family: "Sunrise", sans-serif;
+  font-size: xx-large;
+  padding: 20px
+}
+.mountain-photo {
+  max-width: 100%;
 }
 
 .Introduction {
@@ -35,16 +55,22 @@ html {
   padding: 20px;
 }
 
+.Image
+{
+  justify-content: right;
+  overflow-y: auto;
+}
+
 .Upload {
-  text-align: left;
-  color: #fff;
+  text-align: center;
+  color: #c45f00;
   flex: 1;
   overflow-y: auto; 
   padding: 20px;
 }
 
 .Upload button, .ConfirmUpload button { /* format buttons the same way */
-  background-color: #007bff;
+  background-color: #c45f00;
   margin-left: auto;
   font-family: Arial, sans-serif;
   color: #fff;
@@ -55,7 +81,7 @@ html {
 }
 
 .Footer {
-  background-color: #a5a5a5;
+  background-color: #c45f00;
   color: white;
   padding: 10px;
   position: relative;
