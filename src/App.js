@@ -1,5 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef} from 'react';
 import './App.css';
+import axios from 'axios';
 
 function App() {
   const fileInputRef = useRef(null);
@@ -11,7 +12,8 @@ function App() {
     const file = event.target.files[0]; // Get the first selected file
     if (file) {
       setButtonText('Image Selected');
-      const reader = new FileReader(); // FileReader object to read the file
+      processImage(file);
+      //const reader = new FileReader(); // FileReader object to read the file
       // MACHINE LEARNING ACTS ON IMAGE
       };
     }
@@ -19,6 +21,22 @@ function App() {
   // function to control user interaction with file upload button
   const handleButtonClick = () => {
     fileInputRef.current.click();
+  };
+
+  // Function to process the uploaded image and send it to Flask backend
+  const processImage = async (file) => {
+    try {
+      const formData = new FormData();
+      formData.append('image', file);
+      await axios.post('/api/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      console.log('Image uploaded successfully');
+    } catch (error) {
+      console.error('Error uploading image:', error);
+    }
   };
 
   // webpage layout
@@ -40,7 +58,6 @@ function App() {
         <p>
           What resoling is, why it's important.
         </p>
-        <img className="shoe-diagram" src={"https://images.squarespace-cdn.com/content/v1/603cfb54fc57820778f008fb/1614786612429-OHV4FYZIME3NP732LBO5/shoe_anatomy.png"} alt={'Diagram of a climbing shoe'} />
         <img className="before-after-image" src={"https://blog.weighmyrack.com/wp-content/uploads/2019/12/Yosemite-Bum-Resoling-before-after-Photo.jpg"} alt={`Before & after resoling climbing shoes`} />
       </div>
       
@@ -61,7 +78,7 @@ function App() {
       <div className='Buffer'> </div>
 
       <footer className="Footer">
-        <p> 2024 ReSoul</p>
+        <p> 2024 Re-Soul Your Shoes</p>
       </footer>
     </div>
   );
