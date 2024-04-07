@@ -2,6 +2,7 @@ import React, { useState, useRef} from 'react';
 import Logo from './vector3.svg';
 import Splash from './website_photo.jpg';
 import './App.css';
+import axios from 'axios';
 
 function App() {
   const fileInputRef = useRef(null);
@@ -13,7 +14,8 @@ function App() {
     const file = event.target.files[0]; // Get the first selected file
     if (file) {
       setButtonText('Image Selected');
-      const reader = new FileReader(); // FileReader object to read the file
+      processImage(file);
+      //const reader = new FileReader(); // FileReader object to read the file
       // MACHINE LEARNING ACTS ON IMAGE
       };
     }
@@ -21,6 +23,22 @@ function App() {
   // function to control user interaction with file upload button
   const handleButtonClick = () => {
     fileInputRef.current.click();
+  };
+
+  // Function to process the uploaded image and send it to Flask backend
+  const processImage = async (file) => {
+    try {
+      const formData = new FormData();
+      formData.append('image', file);
+      await axios.post('/api/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      console.log('Image uploaded successfully');
+    } catch (error) {
+      console.error('Error uploading image:', error);
+    }
   };
 
   // webpage layout
@@ -73,7 +91,7 @@ function App() {
       <div className='Buffer'> </div>
 
       <footer className="Footer">
-        <p> 2024 ReSoul</p>
+        <p> 2024 Re-Soul Your Shoes</p>
       </footer>
     </div>
   );
