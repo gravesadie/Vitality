@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Quicksand';
+    src: url('./fonts/Quicksand-VariableFont_wght.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Sunrise';
+    src: url('./fonts/wg_sunrise_font.ttf') format('truetype');
+  }

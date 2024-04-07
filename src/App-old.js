@@ -1,8 +1,5 @@
-import React, { useState, useRef} from 'react';
-import Logo from './vector3.svg';
-import Splash from './website_photo.jpg';
+import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
-import axios from 'axios';
 
 function App() {
   const fileInputRef = useRef(null);
@@ -14,8 +11,7 @@ function App() {
     const file = event.target.files[0]; // Get the first selected file
     if (file) {
       setButtonText('Image Selected');
-      processImage(file);
-      //const reader = new FileReader(); // FileReader object to read the file
+      const reader = new FileReader(); // FileReader object to read the file
       // MACHINE LEARNING ACTS ON IMAGE
       };
     }
@@ -25,37 +21,12 @@ function App() {
     fileInputRef.current.click();
   };
 
-  // Function to process the uploaded image and send it to Flask backend
-  const processImage = async (file) => {
-    try {
-      const formData = new FormData();
-      formData.append('image', file);
-      await axios.post('/api/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
-      console.log('Image uploaded successfully');
-    } catch (error) {
-      console.error('Error uploading image:', error);
-    }
-  };
-
   // webpage layout
   return (
     <div className="App">
       <header className="App-header">
-        <div className="logo">
-          <img className="logo" src={Logo} alt="ReSoul Logo"/>
-        </div>
-        <div className='Title'>
-          <h1>ReSoul Your Shoes</h1>
-        </div>
+        <h1>ReSoul Your Shoes</h1>
       </header>
-
-      <div className="Splash">
-        <img className="mountain-photo" src={Splash} alt={"Climber on mountain"}/>
-      </div>
 
       <div className="Introduction">
         <h2> Motivation </h2>
@@ -69,9 +40,8 @@ function App() {
         <p>
           What resoling is, why it's important.
         </p>
-        <div className="Image">
-          <img className="before-after-image" src={"https://blog.weighmyrack.com/wp-content/uploads/2019/12/Yosemite-Bum-Resoling-before-after-Photo.jpg"} alt={`Before & after resoling climbing shoes`} />
-        </div>
+        <img className="shoe-diagram" src={"https://images.squarespace-cdn.com/content/v1/603cfb54fc57820778f008fb/1614786612429-OHV4FYZIME3NP732LBO5/shoe_anatomy.png"} alt={'Diagram of a climbing shoe'} />
+        <img className="before-after-image" src={"https://blog.weighmyrack.com/wp-content/uploads/2019/12/Yosemite-Bum-Resoling-before-after-Photo.jpg"} alt={`Before & after resoling climbing shoes`} />
       </div>
       
       <div className="Upload">
@@ -91,7 +61,7 @@ function App() {
       <div className='Buffer'> </div>
 
       <footer className="Footer">
-        <p> 2024 Re-Soul Your Shoes</p>
+        <p> 2024 ReSoul</p>
       </footer>
     </div>
   );
