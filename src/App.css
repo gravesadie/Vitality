@@ -5,13 +5,12 @@ html {
   margin: 0;
   padding: 0;
   font-family: "Quicksand", sans-serif;
-  color: #c45f00;
-  background-color: #7765d0;
+  color: #a73200;
+  background-color: #ffffff;
   height: 100%;
 }
 
 .App {
-  text-align: center;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -19,74 +18,103 @@ html {
 
 .App-header {
   display: flex;
-  background-color: #ffffff;
-  color: rgb(206, 94, 94);
+  background-color: #ffe7dc;
+  color: #a62100d1;
   position: fixed;
   width: 100%;
-  height: 15%;
+  max-height: 13%;
 }
 
 .logo {
+  padding-top: 12px;
+  padding-left: 10px;
   justify-content: left;
-  width: 30%;
+  width: 37%;
+  max-height: 90%;
 }
 
 .Title{
-  justify-content: center;
   font-family: "Sunrise", sans-serif;
-  font-size: xx-large;
-  padding: 20px
+  font-size: 80pt;
+  text-align: center;
 }
 .mountain-photo {
-  max-width: 100%;
+  width: 100%;
+  height: 10%;
 }
 
 .Introduction {
   text-align: left;
   flex: 1;
   overflow-y: auto; 
-  padding: 20px;
+  padding-left: 120px;
+  padding-right: 120px;
+  text-align: justify;
+  font-size: 45pt;
 }
 
 .Resoling {
   text-align: left;
   flex: 1;
   overflow-y: auto; 
-  padding: 20px;
+  overflow-x: clip;padding: 20px;
+  padding-left: 120px;
+  font-size: 45pt;
+  display: inline-flex;
+  justify-content: space-between;
 }
 
-.Image
+.ResolingText {
+  text-align: justify;
+}
+
+.ResolingImage
 {
-  justify-content: right;
-  overflow-y: auto;
+  color: #fff;
+  padding: 1%;
+  align-self: center;
 }
 
 .Upload {
+  font-size: 40pt;
+  justify-self: center;
   text-align: center;
-  color: #c45f00;
+  color: #a73200;
   flex: 1;
   overflow-y: auto; 
-  padding: 20px;
+  padding: 70px;
+  width: 45%;
+  border: 10px solid #a73200;
+  margin-left: 26.2%;
+}
+
+.ConfirmUpload {
+  text-align: center;
+  overflow-y: auto; 
+  padding: 80px;
 }
 
 .Upload button, .ConfirmUpload button { /* format buttons the same way */
-  background-color: #c45f00;
-  margin-left: auto;
-  font-family: Arial, sans-serif;
+  background-color: #a73200;
+  font-family: "Quicksand", sans-serif;
   color: #fff;
-  padding: 10px 10px;
+  padding: 15px 15px;
+  width: 500px;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   cursor: pointer;
+  font-size: 30pt;
 }
 
 .Footer {
-  background-color: #c45f00;
+  background-color: #a73200;
   color: white;
   padding: 10px;
+  font-size: 40pt;
   position: relative;
   bottom: 0;
   width: 100%;
+  text-align: center;
 }
 
 /*.App {
