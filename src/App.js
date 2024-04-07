@@ -4,11 +4,12 @@ import Splash from './website_photo.jpg';
 import Cloud from './ReSoul.png';
 import './App.css';
 import axios from 'axios';
+import MapIframe from './MapIframe';
+import { Loader } from "@googlemaps/js-api-loader"
 
 function App() {
   const fileInputRef = useRef(null);
   const [buttonText, setButtonText] = useState('Select Image');
-
 
   // function to handle a user-selected image
   const handleImageUpload = (event) => {
@@ -24,6 +25,12 @@ function App() {
   // function to control user interaction with file upload button
   const handleButtonClick = () => {
     fileInputRef.current.click();
+  };
+
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleSelect = (option) => {
+    setSelectedOption(option);
   };
 
   // Function to process the uploaded image and send it to Flask backend
@@ -105,7 +112,29 @@ function App() {
         <button> Analyze </button>
       </div>
 
-      <div className='Buffer'> </div>
+    <div className='Map'>
+      <MapIframe />
+    </div>
+
+    <div className='Booking'>
+      <h2> Book an appointment: </h2>
+      <label for="fname">Name: </label>
+      <input type="text" id="name" name="name" style={{ fontFamily: "Quicksand", fontSize: "50pt", width:"600px", height:"100px"}}></input> <br></br>
+      <label for="fname">Contact email: </label>
+      <input type="text" id="email" name="email" style={{ fontFamily: "Quicksand", fontSize: "50pt", width:"600px", height:"100px"}}></input> <br></br>
+      
+      <p> Select a Location: {selectedOption}</p>
+      
+      <select className="selectBox" onChange={(e) => handleSelect(e.target.value)}>
+        <option value=""> </option>
+        <option value="The Quick Cobbler">The Quick Cobbler</option>
+        <option value="West Coast Resoles">West Coast Resoles</option>
+        <option value="REI">REI</option>
+        <option value="Gold Stop Shoes & Repair">Gold Stop Shoes & Repair</option>
+      </select>
+    </div>
+
+      <div className='Buffer'> <b></b> </div>
 
       <footer className="Footer">
         <p> 2024 Re-Soul Your Shoes</p>
