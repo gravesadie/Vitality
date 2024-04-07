@@ -5,7 +5,7 @@ import Cloud from './ReSoul.png';
 import './App.css';
 import axios from 'axios';
 import MapIframe from './MapIframe';
-import { Loader } from "@googlemaps/js-api-loader"
+//import { Loader } from "@googlemaps/js-api-loader"
 
 function App() {
   const fileInputRef = useRef(null);
