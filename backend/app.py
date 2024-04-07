@@ -1,14 +1,18 @@
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import os
 
 app = Flask(__name__)
 cors = CORS(app, origin='*')
 
+UPLOAD_FOLDER = 'uploads'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 @app.route("/", methods=["GET", "POST"])
 #Test API Route
 @app.route('/api/upload', methods=["GET", "POST"])
-def hello_world():
+def upload_file():
     if request.method == "POST":
         if 'files[]' not in request.files:
             resp = jsonify({
@@ -17,6 +21,13 @@ def hello_world():
                 })
             resp.status_code = 400
             return resp
+        files = request.files.getlist('files[]')
+
+        for file in files:
+            #if file and allowed_file(file.filename):
+                #filename = secure_filename(file.filename)
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
         resp = jsonify({
             "message": "Upload Successful",
             "status": "success"
