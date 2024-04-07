@@ -1,23 +1,67 @@
-import React from 'react';
+import React, { useState, useRef} from 'react';
 import './App.css';
 
 function App() {
+  const fileInputRef = useRef(null);
+  const [buttonText, setButtonText] = useState('Select Image');
+
+
+  // function to handle a user-selected image
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0]; // Get the first selected file
+    if (file) {
+      setButtonText('Image Selected');
+      const reader = new FileReader(); // FileReader object to read the file
+      // MACHINE LEARNING ACTS ON IMAGE
+      };
+    }
+  
+  // function to control user interaction with file upload button
+  const handleButtonClick = () => {
+    fileInputRef.current.click();
+  };
+
+  // webpage layout
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Hwllo to My React Scrollable Page</h1>
+        <h1>ReSoul Your Shoes</h1>
       </header>
-      <div className="Content">
+
+      <div className="Introduction">
+        <h2> Motivation </h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
-          odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla
-          quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent
-          mauris. Fusce nec tellus sed augue semper porta. Mauris massa.
+          MOTIVATION, SUSTAINABILITY, WELLNESS.
         </p>
-        {/* Repeat this paragraph to fill the page */}
       </div>
+
+      <div className="Resoling">
+        <h2> What Is Resoling? </h2>
+        <p>
+          What resoling is, why it's important.
+        </p>
+        <img className="shoe-diagram" src={"https://images.squarespace-cdn.com/content/v1/603cfb54fc57820778f008fb/1614786612429-OHV4FYZIME3NP732LBO5/shoe_anatomy.png"} alt={'Diagram of a climbing shoe'} />
+        <img className="before-after-image" src={"https://blog.weighmyrack.com/wp-content/uploads/2019/12/Yosemite-Bum-Resoling-before-after-Photo.jpg"} alt={`Before & after resoling climbing shoes`} />
+      </div>
+      
+      <div className="Upload">
+        <h3> Upload your climbing shoes: </h3>
+        <button onClick={handleButtonClick}>{buttonText}</button>
+        <input type="file" 
+        onChange={handleImageUpload}
+        ref={fileInputRef}
+        style={{ display: 'none' }}/>
+      </div>
+
+      {/* ONLY WANT BUTTON TO APPEAR ONCE FILE SELECTED */}
+      <div className='ConfirmUpload'> 
+        <button> Analyze </button>
+      </div>
+
+      <div className='Buffer'> </div>
+
       <footer className="Footer">
-        <p>© 2024 My React App</p>
+        <p> 2024 ReSoul</p>
       </footer>
     </div>
   );
