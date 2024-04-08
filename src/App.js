@@ -37,8 +37,8 @@ function App() {
   const processImage = async (file) => {
     try {
       const formData = new FormData();
-      formData.append('image', file);
-      await axios.post('api/upload', formData, {
+      formData.append('file', file);
+      await axios.post('http://localhost:8080/api/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -103,6 +103,7 @@ function App() {
         <h5> Drag and drop here <br></br> or </h5>
         <button onClick={handleButtonClick}>{buttonText}</button>
         <input type="file" 
+        name="file"
         onChange={handleImageUpload}
         ref={fileInputRef}
         style={{ display: 'none' }}/>
