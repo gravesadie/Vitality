@@ -1,11 +1,13 @@
 import React, { useState, useRef} from 'react';
+import axios from 'axios';
+// image imports
 import Logo from './vector3.svg';
 import Splash from './website_photo.jpg';
 import Cloud from './ReSoul.png';
+import Title from './Title.png';
 import './App.css';
-import axios from 'axios';
+// map import
 import MapIframe from './MapIframe';
-//import { Loader } from "@googlemaps/js-api-loader"
 
 function App() {
   const fileInputRef = useRef(null);
@@ -17,14 +19,16 @@ function App() {
     if (file) {
       setButtonText('Image Selected');
       processImage(file);
-      //const reader = new FileReader(); // FileReader object to read the file
-      // MACHINE LEARNING ACTS ON IMAGE
       };
     }
   
   // function to control user interaction with file upload button
   const handleButtonClick = () => {
     fileInputRef.current.click();
+  };
+
+  const handleButtonClick2 = () => {
+    
   };
 
   const [selectedOption, setSelectedOption] = useState(null);
@@ -55,9 +59,10 @@ function App() {
       <header className="App-header">
         <div className="logo">
           <img className="logo" src={Logo} alt="ReSoul Logo"/>
+          <img className="title" src={Title} alt="ReSoul Logo" height={"300px"} />
         </div>
         <div className='Title'>
-          <h1>ReSoul Your Shoes</h1>
+        
         </div>
       </header>
 
